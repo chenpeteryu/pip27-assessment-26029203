@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-23",
+  "template": "v0.2.0",
+  "base_commit": "38175e3068b0a20d55545b7d1734c2651005377d",
+  "selection": "各题顶层 src 第一版；不采用 considering、archive、tests、build 或交接包副本",
+  "normalization": "仅将 CRLF 规范化为 LF，未修改算法内容；source_sha256 是原始字节，submitted_sha256 是提交字节",
+  "official_interfaces": "T1-T3 include 与 T4 msg 均核对 Git blob 一致，保持远端原样",
+  "files": [
+    {
+      "path": "problems/T1_bipartite_matching/src/bipartite_matching.cpp",
+      "source_sha256": "9bcc4424145362824d1f05c1a46315b030a1dd12dc210f4f3e955bfdc9872374",
+      "submitted_sha256": "9bcc4424145362824d1f05c1a46315b030a1dd12dc210f4f3e955bfdc9872374",
+      "git_blob_sha": "792bc1183e88eb712b2e73ecbdaae77710caaa32"
+    },
+    {
+      "path": "problems/T2_dynamic_kth/src/dynamic_kth.cpp",
+      "source_sha256": "9de53ff1413fadd92a5cf2bab1e802293ed1739c01b8d5a9d756bd01d180b571",
+      "submitted_sha256": "a8a65a383ce1b0f119ec512efd4c9069a6b1389dba2c23d78dcfd79f73149af6",
+      "git_blob_sha": "ac135a22c89b1f878d84e4143b6dbb834f9ac9c3"
+    },
+    {
+      "path": "problems/T3_signal_identification/src/signal_identifier.cpp",
+      "source_sha256": "8ea4986e8e84a689f3cb61f371136e3a270f06cdaba1f78a0a8ed9c02bb4950e",
+      "submitted_sha256": "2c30d7cff29174e3fedabf8f960e03f67941d58309211b4e17185b06e8f6818a",
+      "git_blob_sha": "2a0e886c0d5916196539245d2fadc7dc215fe0ea"
+    },
+    {
+      "path": "problems/T4_realtime_estimation/src/estimator_node.cpp",
+      "source_sha256": "be90a347eff58a615710c5e8e2da85575ac7f049bb3acd9f17863175497c14a6",
+      "submitted_sha256": "be90a347eff58a615710c5e8e2da85575ac7f049bb3acd9f17863175497c14a6",
+      "git_blob_sha": "ea82810d41672764f20bde7d553ec151d1c96997"
+    },
+    {
+      "path": "problems/T4_realtime_estimation/src/online_estimator.cpp",
+      "source_sha256": "5ab3508e33ca4246ef2f3dcba09296bf3b90bba926756d34978ca6b50e12d4ae",
+      "submitted_sha256": "5ab3508e33ca4246ef2f3dcba09296bf3b90bba926756d34978ca6b50e12d4ae",
+      "git_blob_sha": "4636a06bd06c2a8835ebc91f586523b7343dca56"
+    },
+    {
+      "path": "problems/T4_realtime_estimation/src/online_estimator.hpp",
+      "source_sha256": "92d8caa108549df0fd97e3dee50675e842e26a27937449100f204a7b4ceb6782",
+      "submitted_sha256": "92d8caa108549df0fd97e3dee50675e842e26a27937449100f204a7b4ceb6782",
+      "git_blob_sha": "d76c3b4b69350702afd7762f4bcfbf8672365cb5"
+    },
+    {
+      "path": "problems/T4_realtime_estimation/src/prediction_stream.hpp",
+      "source_sha256": "2b504d3145b5829cfb9f00113063b93203181f19e8df2010e8aa480304c2140c",
+      "submitted_sha256": "2b504d3145b5829cfb9f00113063b93203181f19e8df2010e8aa480304c2140c",
+      "git_blob_sha": "c043ee212c5943fd4d7eb4fc8705ed1d46bab6a6"
+    }
+  ],
+  "historical_evidence": [
+    {
+      "source_path": "算法/problems/T1_bipartite_matching/IMPLEMENTATION.md",
+      "sha256": "b07e8d22f01eba31083dc140a74b9cf6a9481cf14b91b108e69b2b7fdd5ae690"
+    },
+    {
+      "source_path": "算法/problems/T1_bipartite_matching/tests/perf/README.md",
+      "sha256": "b5891f261b3b98d9eafb4c2cbf1099762478fe3b40fdec4fc34872e1ff53b2de"
+    },
+    {
+      "source_path": "算法/problems/T2_dynamic_kth/IMPLEMENTATION.md",
+      "sha256": "d8f7d481e03dde7f9cceec1ae8995360ad3e1f2d7686064e9654c23154cfbd8a"
+    },
+    {
+      "source_path": "算法/problems/T2_dynamic_kth/tests/stress/results/results.md",
+      "sha256": "949f46d884ad6ecf3a82daf3abb5e3d957aee051c06f093be3484333fb4eef86"
+    },
+    {
+      "source_path": "算法/problems/T3_signal_identification/IMPLEMENTATION.md",
+      "sha256": "1451101c6fcb71335ef6576af6d61d06654b589be33919705cecf3c4ae08f990"
+    },
+    {
+      "source_path": "算法/problems/T3_signal_identification/tests/results.json",
+      "sha256": "7947e46901977f4a9bc839395b21a9a6a26c3ae13809a82e76b32cea3c3206d1"
+    },
+    {
+      "source_path": "算法/problems/T3_signal_identification/tests/benchmark/results.json",
+      "sha256": "9531e5a930d1f389c1040c7d7cebb9354a55ac843150939c41e266071c91d46c"
+    },
+    {
+      "source_path": "算法/problems/T4_realtime_estimation/IMPLEMENTATION.md",
+      "sha256": "72414d6e8fd73b19465b08aaac4dab08fa5f01f05b258c4d8b6201e2cd6bc630"
+    },
+    {
+      "source_path": "算法/problems/T4_realtime_estimation/tests/results/summary.json",
+      "sha256": "19039eec9d65a7b8e9af931d62aae8cb92aba20bf76155cdd217fffd293cf5ad"
+    },
+    {
+      "source_path": "算法/problems/T4_realtime_estimation/tests/holdout_results/summary.json",
+      "sha256": "88e1dba4bc87d0cbf0b4b562096121497a8e5152c21befdbf783651f3c977949"
+    }
+  ]
+}
