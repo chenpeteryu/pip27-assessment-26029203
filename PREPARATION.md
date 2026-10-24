@@ -1,5 +1,13 @@
 # PIP 2027 算法组作答状态
 
+## 2026-10-24 T2状态更新
+
+用户授权采用并推送T2 v4，当前选择是分块+Fenwick+按需静态排名快照，不采用v5/v6/v7。固定接口和构建配置保持不变。详见CHANGELOG.md、problems/T2_dynamic_kth/VERSION.md与IMPLEMENTATION.md。
+
+原51组主矩阵核0复测51/51，扩充数据仍有两项拓展1阶段负载超时；不是官方成绩。历史Linux报告和本次Windows记录分开保留。以下2026-10-23准备/第一版说明作为历史，不再代表当前T2源码版本。
+
+---
+
 - GitHub：chenpeteryu；学号：26029203。
 - 仓库：https://github.com/chenpeteryu/pip27-assessment-26029203
 - 分支：assessment；官方模板：v0.2.0（f63b2979958a42960ff9eab0d552b71cd9bf8b76）。

@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-24",
+  "task": "T2",
+  "version": "v4",
+  "repository": "chenpeteryu/pip27-assessment-26029203",
+  "branch": "assessment",
+  "parent_commit": "29ec5dc3c376a58a8a6b2cc265b6805692bd412f",
+  "source_origin": "算法/problems/T2_dynamic_kth/considering/v4/dynamic_kth.cpp",
+  "source_path": "problems/T2_dynamic_kth/src/dynamic_kth.cpp",
+  "source_sha256": "ff1826576d99635defa5ee042429b47c4c58d1bcbd72b1d6d2f6d22a9aaec2b5",
+  "submitted_sha256": "1978675cac11738cfbfe23f9efe65dfb36a28f13a3a0202a84d74f07c12dec64",
+  "git_blob_sha": "81362156564f5834abfba3642a0e4d1e45db7bd7",
+  "official_header_git_blob": "418c4e39d3cac5ff34c4a0d8e3cc52f7ef217ac2",
+  "official_cmake_git_blob": "1a3d24ad9a10fee2f7133026118d7313eca73dd7",
+  "normalization": "UTF-8 LF; algorithm and thresholds unchanged",
+  "excluded_candidates": [
+    "v5_rebuild_snapshot",
+    "v6_earlier_snapshot",
+    "v7_conservative_rebuild"
+  ],
+  "validation": {
+    "source_rebuild": "pass: submitted LF source with official header; public API, snapshot state, 31 frozen basic cases",
+    "platform": "Windows MSVC19.38 C++17 /O2 /W4",
+    "main51_core0": "51/51",
+    "extended_core0": {
+      "basic": "31/31",
+      "tier1": "24/26",
+      "tier2": "21/21"
+    },
+    "main51_core4": "50/51",
+    "extended_core4": "67/78",
+    "known_timeouts": [
+      "index_modify_random_long",
+      "phase_512"
+    ],
+    "linux_history": "Exported report records original51 passed; Linux not rerun for this commit",
+    "official_assessment": "not run",
+    "release_validation_log_sha256": "152aea7551af92fe3f305bfcf0882c25778bbc91e9e8f55de4516452da22b58d"
+  },
+  "evidence": [
+    {
+      "local_t2_relative_path": "considering/v4_retest_20261024/REPORT.md",
+      "sha256": "122ef568ded7fa731879b082745884e11db268a664e8a11a7715d26e7aceb429"
+    },
+    {
+      "local_t2_relative_path": "considering/v4_retest_20261024/results/summary.json",
+      "sha256": "e58b2c148055232a11b6dc2c786338cc3a9e7b55433e1b233789ae6b8955cb8f"
+    },
+    {
+      "local_t2_relative_path": "considering/v4_retest_20261024/results/core0/summary.json",
+      "sha256": "97274a3bbd11c6ebe06aae14a8ae04766a685e0aa0b221c756822956301d34a9"
+    },
+    {
+      "local_t2_relative_path": "considering/v4_retest_20261024/results/diagnostic.json",
+      "sha256": "6536d6444667fe91137a3062783210c5d702a7cbb4d69d786e1fbcbf73966725"
+    },
+    {
+      "local_t2_relative_path": "considering/review_20261024_simple_regression/ANALYSIS.md",
+      "sha256": "ef875c2897446db152c6f3574427afa6247a2af0cc03dafad00344883f6e7629"
+    },
+    {
+      "local_t2_relative_path": "considering/optimization_20261024/linux_reference/LINUX_RESULTS.md",
+      "sha256": "b531527f84954fed6f0f26b1ef370877a1c12f1bf23af995b0f3c864568bf446"
+    }
+  ],
+  "previous_source_git_blob": "ac135a22c89b1f878d84e4143b6dbb834f9ac9c3",
+  "v1_local_archive": "算法/problems/T2_dynamic_kth/archive/v1_20261024"
+}
