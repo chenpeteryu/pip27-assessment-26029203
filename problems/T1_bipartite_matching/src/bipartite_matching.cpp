@@ -30,15 +30,18 @@ vector<int32_t> BipartiteMatcher::maximumWeightMatching() const {
         return answer;
     }
 
-    struct Arc { int to, next; Wide cost; bool available; };
+    // Only positive input weights enter the network. Thus stored forward and
+    // reverse arc costs are in [-INT64_MAX, INT64_MAX], never INT64_MIN.
+    // Distances, reduced-cost arithmetic and potentials remain 128-bit.
+    struct Arc { int to, next; int64_t cost; bool available; };
     const int source = l + r, sink = source + 1, n = sink + 1;
     vector<int> head(n, -1);
     vector<Arc> arcs;
     arcs.reserve(2 * (impl_->edges.size() + l + r));
     auto add = [&](int u, int v, Wide cost) {
         int id = static_cast<int>(arcs.size());
-        arcs.push_back({v, head[u], cost, true}); head[u] = id;
-        arcs.push_back({u, head[v], -cost, false}); head[v] = id + 1;
+        arcs.push_back({v, head[u], static_cast<int64_t>(cost), true}); head[u] = id;
+        arcs.push_back({u, head[v], static_cast<int64_t>(-cost), false}); head[v] = id + 1;
     };
     vector<Wide> potential(n, 0);
     for (int i = 0; i < l; ++i) add(source, i, 0);
@@ -58,8 +61,11 @@ vector<int32_t> BipartiteMatcher::maximumWeightMatching() const {
     using Item = pair<Wide, int>;
     vector<Item> storage;
     storage.reserve(arcs.size());
-    priority_queue<Item, vector<Item>, greater<Item>>
-        queue(greater<Item>{}, move(storage));
+    struct Heap : priority_queue<Item, vector<Item>, greater<Item>> {
+        using priority_queue<Item, vector<Item>, greater<Item>>::priority_queue;
+        void clear() { this->c.clear(); }
+    };
+    Heap queue(greater<Item>{}, move(storage));
     while (true) {
         fill(distance.begin(), distance.end(), inf);
         fill(previous.begin(), previous.end(), -1);
@@ -80,7 +86,7 @@ vector<int32_t> BipartiteMatcher::maximumWeightMatching() const {
                 }
             }
         }
-        while (!queue.empty()) queue.pop();
+        queue.clear();
         if (distance[sink] == inf ||
             distance[sink] + potential[sink] - potential[source] >= 0) break;
  

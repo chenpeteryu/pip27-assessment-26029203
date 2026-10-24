@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-24",
+  "task": "T1",
+  "version": "v2",
+  "candidate": "v2_compact_arcs",
+  "parent_commit": "07151217b4e6d5bb89e4c69d9f0fc07fe522f1aa",
+  "v1_backup_branch": "backup/t1-v1-20261024",
+  "source_path": "problems/T1_bipartite_matching/src/bipartite_matching.cpp",
+  "source_sha256": "b2039ff716ec33f141dff34b9fb524ac4ef1f071e68d879ffa91ba1dd17437a9",
+  "git_blob_sha": "b283d852e2c97c3595d5fb23a0e0af62866355b1",
+  "v1_source_sha256": "9bcc4424145362824d1f05c1a46315b030a1dd12dc210f4f3e955bfdc9872374",
+  "validation": {
+    "rebuilt_formal_source": true,
+    "platform": "Windows MSVC 19.38 C++17 /O2 with test-only 128-bit adapter",
+    "brute_force_cases": 15000,
+    "independent_reference_cases": 36,
+    "boundaries_and_repeated_calls": "pass",
+    "large_graph_internal_ms": [
+      1064,
+      1346,
+      1878,
+      2104
+    ],
+    "linux_gcc": "not verified",
+    "official_assessment": "not run"
+  },
+  "scope": "T1 source and release records only; preserve other tasks, official interfaces and build files",
+  "submitted_sha256": "748ededd1a1f81649febaf8e4a1bafd0881444513cfab0108a107a267bbfe514",
+  "normalization": "Submitted source uses LF; source_sha256 identifies the original candidate bytes; algorithm content unchanged"
+}
