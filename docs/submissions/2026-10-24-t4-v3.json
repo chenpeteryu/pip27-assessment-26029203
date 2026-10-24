@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-24",
+  "repository": "chenpeteryu/pip27-assessment-26029203",
+  "branch": "assessment",
+  "base_commit": "5f301dbe1c0c14d5bdc0b56fb8b0beac3d50615d",
+  "version": "T4 v3",
+  "candidate": "v3a_recent_dense",
+  "source_files": [
+    {
+      "path": "problems/T4_realtime_estimation/src/estimator_node.cpp",
+      "source": "considering/v3_precision_20261024/v3/src/estimator_node.cpp",
+      "source_sha256": "be90a347eff58a615710c5e8e2da85575ac7f049bb3acd9f17863175497c14a6",
+      "submitted_sha256": "be90a347eff58a615710c5e8e2da85575ac7f049bb3acd9f17863175497c14a6",
+      "git_blob_sha": "ea82810d41672764f20bde7d553ec151d1c96997",
+      "bytes": 5275
+    },
+    {
+      "path": "problems/T4_realtime_estimation/src/online_estimator.cpp",
+      "source": "considering/v3_precision_20261024/v3/src/online_estimator.cpp",
+      "source_sha256": "c04c5122759d1519194730a1c57aac48b343b339855bede264030fa4d1fd7310",
+      "submitted_sha256": "67ed9bf97e78ac9765c87a433c243f48b31ffa35a0056bf8a6108e6ed1e75218",
+      "git_blob_sha": "590edb2b49d49b909998a064c24f3a53af6878fd",
+      "bytes": 5909
+    },
+    {
+      "path": "problems/T4_realtime_estimation/src/online_estimator.hpp",
+      "source": "considering/v3_precision_20261024/v3/src/online_estimator.hpp",
+      "source_sha256": "31ce9b39621654679894e90c1d24520354009f9141836e1cfd5fad9eefd2f5e5",
+      "submitted_sha256": "31ce9b39621654679894e90c1d24520354009f9141836e1cfd5fad9eefd2f5e5",
+      "git_blob_sha": "b322498ae9f314c34684547e5c129b55275a46db",
+      "bytes": 982
+    },
+    {
+      "path": "problems/T4_realtime_estimation/src/prediction_stream.hpp",
+      "source": "considering/v3_precision_20261024/v3/src/prediction_stream.hpp",
+      "source_sha256": "2b504d3145b5829cfb9f00113063b93203181f19e8df2010e8aa480304c2140c",
+      "submitted_sha256": "2b504d3145b5829cfb9f00113063b93203181f19e8df2010e8aa480304c2140c",
+      "git_blob_sha": "c043ee212c5943fd4d7eb4fc8705ed1d46bab6a6",
+      "bytes": 1795
+    }
+  ],
+  "evidence": [
+    {
+      "path": "considering/v3_precision_20261024/paired_comparison.json",
+      "sha256": "74740c843eba6302831ae571ab3b4ea8a17116ddae46e4d50fa1af8b8f1ba137"
+    },
+    {
+      "path": "considering/v3_precision_20261024/original_comparison.json",
+      "sha256": "fbce9f9bdcbcd4247b26357c2f66fcf82e0c40e4d8ac2b7b3289bbfb27a0650d"
+    },
+    {
+      "path": "considering/v3_precision_20261024/simple_recheck.json",
+      "sha256": "b0f0df6e7fa73ada74c46628f00ab8f0b0aa92affae7ed41440dc07d3a8458a3"
+    },
+    {
+      "path": "considering/v3_precision_20261024/FROZEN_SELECTION.json",
+      "sha256": "eeb4b80e77507a8892da4a80c45fb892ee9d2ae924900f0bedbe9927bccefd05"
+    },
+    {
+      "path": "considering/v3_precision_20261024/REPORT.md",
+      "sha256": "ce7a4ccd286907292e035c4904fcb578833ecb515b54ea0b18e75b4bbedb297a"
+    },
+    {
+      "path": "considering/v3_precision_20261024/FINAL_V3_MANIFEST.json",
+      "sha256": "3081ed17ff4ddc10128a5335b8e09d42824a378029027c7c73c355a3c1ad16ff"
+    }
+  ],
+  "numeric_summary": {
+    "v2": {
+      "0": {
+        "total": 39,
+        "numeric_pass": 34,
+        "worst_ratio": 1.168280117058843
+      },
+      "1": {
+        "total": 39,
+        "numeric_pass": 39,
+        "worst_ratio": 0.9109169572162324
+      },
+      "2": {
+        "total": 39,
+        "numeric_pass": 32,
+        "worst_ratio": 1.2124451339131472
+      },
+      "3": {
+        "total": 39,
+        "numeric_pass": 37,
+        "worst_ratio": 1.1095307595769877
+      }
+    },
+    "v3a_recent_dense": {
+      "0": {
+        "total": 39,
+        "numeric_pass": 39,
+        "worst_ratio": 0.9684178947066558
+      },
+      "1": {
+        "total": 39,
+        "numeric_pass": 39,
+        "worst_ratio": 0.8398232511064991
+      },
+      "2": {
+        "total": 39,
+        "numeric_pass": 32,
+        "worst_ratio": 1.2124451339131472
+      },
+      "3": {
+        "total": 39,
+        "numeric_pass": 37,
+        "worst_ratio": 1.1095307595769877
+      }
+    }
+  },
+  "notes": [
+    "120 new numeric cases use12 independent trajectories with five noise targets and two noise repetitions;80 development and40 validation",
+    "36 old cases rerun for selected v3;156 numeric cases total, not official grades",
+    "No amplitude search or Cholesky dot reorder included",
+    "Workspace reuse and finite-fit fallback inherited from Linux-fixed baseline/v2",
+    "ROS/Humble build, DDS latency, rate, resource and exit acceptance not validated in this Windows promotion"
+  ],
+  "local_v1_backup": "archive/v1_before_v3_20261024",
+  "promotion_recheck": {
+    "platform": "Windows MSVC19.38 C++17 /O2 /W4",
+    "core_tests": "PASS",
+    "public_numeric": "20/20",
+    "rmse_matches_frozen_candidate_exactly": true,
+    "max_observed_core_ms": 3.9139,
+    "scope": "Core only; no ROS build or end-to-end validation",
+    "build_log_sha256": "f71f52423ebf81d775ac27a50013921c6b4f82909be94a3e7d71e4fd2fb53c75",
+    "summary_sha256": "207a3b772fd0b0c428a8ed64ed6c1e0c0e7c155a31345693e72bed90d814d63e"
+  }
+}

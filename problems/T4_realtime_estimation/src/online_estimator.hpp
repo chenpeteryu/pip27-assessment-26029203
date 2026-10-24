@@ -19,6 +19,7 @@ class OnlineEstimator {
   struct Sample { std::int64_t stamp; double value; };
   double kernel(double delta, double length) const;
   double fit(double length, bool save);
+  std::vector<double> lower_workspace_, z_workspace_, alpha_workspace_;
   int mode_;
   std::deque<Sample> history_;
   std::vector<double> times_, values_, alpha_;

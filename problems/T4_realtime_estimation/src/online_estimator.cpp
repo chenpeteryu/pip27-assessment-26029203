@@ -15,7 +15,11 @@ double OnlineEstimator::kernel(double delta, double length) const {
 
 double OnlineEstimator::fit(double length, bool save) {
   const std::size_t n = times_.size();
-  std::vector<double> lower(n * n, 0.0), z(n), alpha(n);
+  // All lower-triangle and z entries are overwritten before being read.
+  auto& lower = lower_workspace_;
+  auto& z = z_workspace_;
+  auto& alpha = alpha_workspace_;
+  lower.resize(n * n); z.resize(n); alpha.resize(n);
   double logdet = 0.0;
   for (std::size_t i = 0; i < n; ++i) {
     for (std::size_t j = 0; j <= i; ++j) {
@@ -24,7 +28,7 @@ double OnlineEstimator::fit(double length, bool save) {
       for (std::size_t k = 0; k < j; ++k)
         s -= lower[i * n + k] * lower[j * n + k];
       if (i == j) {
-        if (!(s > 0.0)) return std::numeric_limits<double>::infinity();
+        if (!(s > 0.0) || !std::isfinite(s)) return std::numeric_limits<double>::infinity();
         lower[i * n + j] = std::sqrt(s);
         logdet += std::log(s);
       } else {
@@ -43,7 +47,10 @@ double OnlineEstimator::fit(double length, bool save) {
     for (std::size_t k = i + 1; k < n; ++k) s -= lower[k * n + i] * alpha[k];
     alpha[i] = s / lower[i * n + i];
   }
-  if (save) alpha_ = std::move(alpha);
+  if (!std::isfinite(quadratic + logdet) ||
+      !std::all_of(alpha.begin(), alpha.end(), [](double x) { return std::isfinite(x); }))
+    return std::numeric_limits<double>::infinity();
+  if (save) alpha_.assign(alpha.begin(), alpha.end());
   return quadratic + logdet;
 }
 
@@ -82,7 +89,14 @@ void OnlineEstimator::addObservation(std::int64_t stamp_ns, double value) {
   const std::size_t n = std::min<std::size_t>(192, selected.size());
   mean_ = 0.0;
   for (std::size_t i = 0; i < n; ++i) {
-    const auto& s = selected[n == 1 ? 0 : i * (selected.size() - 1) / (n - 1)];
+    // Keep the newest 2/3 at full density; spread the remaining budget
+    // across older history. No extra samples, fits, or future observations.
+    const std::size_t recent = selected.size() > n ? n * 2 / 3 : n;
+    const std::size_t older = n - recent;
+    const std::size_t index = selected.size() <= n ? i :
+        (i < older ? i * (selected.size() - recent) / older :
+         selected.size() - recent + i - older);
+    const auto& s = selected[index];
     times_.push_back(static_cast<double>(s.stamp - origin_) * 1e-9);
     values_.push_back(s.value);
     mean_ += s.value / static_cast<double>(n);
@@ -100,7 +114,12 @@ void OnlineEstimator::addObservation(std::int64_t stamp_ns, double value) {
       if (score < best) { best = score; length_ = length; }
     }
   }
-  fit(length_, true);
+  if (!std::isfinite(fit(length_, true))) {
+    // Failed fits must never combine new kernel parameters with stale alpha.
+    // A finite constant prediction is an explicit fallback until the next fit.
+    alpha_.clear();
+    mean_ = value;
+  }
 }
 
 double OnlineEstimator::estimate(std::int64_t stamp_ns) const {
